@@ -28,7 +28,6 @@ public class ApiControllers {
         userRepo.save(user);
         return "Saved";
     }
-
     @PutMapping (value = "/save")
     public String updateUser(@PathVariable long id,@RequestBody User user){
         User updatedUser = userRepo.findById(id).get();
