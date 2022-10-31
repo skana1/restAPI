@@ -1,8 +1,10 @@
 package com.api.app.rest.Models;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity
+@Table(name = "user")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -16,6 +18,11 @@ public class User {
     @Column
     private String occupation;
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
+    private Set<Post> post;
+    public User() {
+
+    }
 
     public long getId() {
         return id;
