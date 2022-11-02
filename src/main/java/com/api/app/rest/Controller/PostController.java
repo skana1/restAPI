@@ -33,7 +33,7 @@ public class PostController {
     }
 
     @DeleteMapping (value = "/deletePost/{id}")
-    public String deletePost (@ PathVariable long id){
+    public String deletePost (@PathVariable long id){
         Post deletePost = postRepo.findById(id).get();
         postRepo.delete(deletePost);
         return "Delete post with id" + id;

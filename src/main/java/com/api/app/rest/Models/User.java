@@ -14,6 +14,10 @@ public class User {
     @Column
     private String lastName;
     @Column
+    private String userName;
+    @Column
+    private String password;
+    @Column
     private int age;
     @Column
     private String occupation;
@@ -22,6 +26,22 @@ public class User {
     private Set<Post> post;
     public User() {
 
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getUserName() {
+        return userName;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 
     public long getId() {
