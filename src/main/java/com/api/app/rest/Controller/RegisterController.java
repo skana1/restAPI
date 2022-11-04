@@ -14,8 +14,8 @@ public class RegisterController {
     UserService userService;
 
     @PostMapping(value = "/login")
-    public String login(@RequestBody Login login){
-        userService.login(login);
+    public String login(@RequestBody String userName, String password){
+        userService.login( userName, password);
         return "LOGGED IN";
     }
 

@@ -1,5 +1,6 @@
 package com.api.app.rest.Controller;
 import com.api.app.rest.Models.User;
+import com.api.app.rest.Models.UserRepository;
 import com.api.app.rest.Repo.UserRepo;
 import com.api.app.rest.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,16 +9,21 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class  UserControllers {
+public class  UserControllers  {
+
+    @Autowired
+    private UserRepository userRepository;
+
     @Autowired
     private UserRepo userRepo;
 
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/")
-    public String getPage(){
-        return "Welcome";
+
+    @GetMapping(value = "/getUserName")
+    public List<String> username(){
+        return userRepository.getUserNames();
     }
 
     @GetMapping(value = "/users")
@@ -48,4 +54,6 @@ public class  UserControllers {
         userRepo.delete(deleteUser);
         return "Delete user with id" + id;
     }
+
+
 }
