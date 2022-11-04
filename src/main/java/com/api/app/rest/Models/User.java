@@ -1,9 +1,6 @@
 package com.api.app.rest.Models;
 
-import org.springframework.data.jpa.repository.Query;
-
 import javax.persistence.*;
-import java.util.List;
 import java.util.Set;
 
 @Entity

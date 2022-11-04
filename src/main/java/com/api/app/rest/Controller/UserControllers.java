@@ -9,21 +9,16 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class  UserControllers  {
-
-    @Autowired
-    private UserRepository userRepository;
-
+public class  UserControllers {
     @Autowired
     private UserRepo userRepo;
 
     @Autowired
     private UserService userService;
 
-
-    @GetMapping(value = "/getUserName")
-    public List<String> username(){
-        return userRepository.getUserNames();
+    @GetMapping(value = "/")
+    public String getPage(){
+        return "Welcome";
     }
 
     @GetMapping(value = "/users")
