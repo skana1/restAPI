@@ -12,12 +12,13 @@ public class UserRepository {
     @PersistenceContext
     private EntityManager entityManager;
 
-    public List<String> getUserNames(){
-
-        Query query = entityManager.createQuery("select userName from User");
-        List<String> listWithUserName =  query.getResultList();
-         return listWithUserName;
-    }
+//    public User userName( String userName){
+////
+//        Query query = entityManager.createQuery("select userName from User");
+//       String UserName = (String) query.getSingleResult();
+//       return null;
+//
+//    }
 
 
 }

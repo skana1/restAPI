@@ -2,14 +2,14 @@ package com.api.app.rest.Models;
 
 import javax.persistence.*;
 @Entity
-@Table(name = "post")
+@Table(name = "postbossks")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column
+    @Column(name = "`UserID`")
     private long user_id;
-    @Column
+    @Column(name = "`Description`")
     private String description;
 
 

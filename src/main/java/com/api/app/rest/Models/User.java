@@ -4,22 +4,22 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name = "user")
+@Table(name = "userbossdysek")
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column
+    @Column(name = "`FName`")
     private String firstName;
-    @Column
+    @Column(name = "`LName`")
     private String lastName;
-    @Column
+    @Column(name = "`UserName`")
     private String userName;
-    @Column
+    @Column(name = "`Password`")
     private String password;
-    @Column
+    @Column(name = "`Age`")
     private int age;
-    @Column
+    @Column(name = "`Occupation`")
     private String occupation;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
