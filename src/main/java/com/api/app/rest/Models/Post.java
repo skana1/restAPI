@@ -2,7 +2,7 @@ package com.api.app.rest.Models;
 
 import javax.persistence.*;
 @Entity
-@Table(name = "postbossks")
+@Table(name = "_post")
 public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
