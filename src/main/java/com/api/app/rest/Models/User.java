@@ -1,6 +1,7 @@
 package com.api.app.rest.Models;
 
 import javax.persistence.*;
+import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -9,24 +10,21 @@ public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "`FName`")
+    @Column
     private String firstName;
-    @Column(name = "`LName`")
+    @Column
     private String lastName;
-    @Column(name = "`UserName`")
+    @Column(unique=true)
     private String userName;
-    @Column(name = "`Password`")
+    @Column
     private String password;
-    @Column(name = "`Age`")
+    @Column
     private int age;
-    @Column(name = "`Occupation`")
+    @Column
     private String occupation;
 
     @OneToMany(fetch = FetchType.EAGER, mappedBy = "user", cascade = CascadeType.ALL)
     private Set<Post> post;
-    public User() {
-
-    }
 
     public String getPassword() {
         return password;

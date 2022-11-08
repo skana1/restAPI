@@ -7,9 +7,9 @@ public class Post {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    @Column(name = "`UserID`")
+    @Column
     private long user_id;
-    @Column(name = "`Description`")
+    @Column
     private String description;
 
 

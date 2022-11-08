@@ -1,6 +1,6 @@
 package com.api.app.rest.Controller;
+import com.api.app.rest.Models.Login;
 import com.api.app.rest.Models.User;
-import com.api.app.rest.Models.UserRepository;
 import com.api.app.rest.Repo.UserRepo;
 import com.api.app.rest.Service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-public class  UserControllers {
+public class UserController {
     @Autowired
     private UserRepo userRepo;
 
@@ -26,7 +26,7 @@ public class  UserControllers {
         return userRepo.findAll();
     }
 
-    @PostMapping(value = "/save/register")
+    @PostMapping(value = "/auth/register")
     public String saveUser(@RequestBody User user){
         userService.save(user);
         return "Saved";
@@ -50,5 +50,10 @@ public class  UserControllers {
         return "Delete user with id" + id;
     }
 
+    @PostMapping(value = "/auth/login")
+    public String login(@RequestBody Login login) throws Exception {
+        userService.login(login);
+        return "LOGGED IN";
+    }
 
 }
