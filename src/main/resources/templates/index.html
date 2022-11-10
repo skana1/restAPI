@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" >
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Classic Login Form Example</title>
@@ -135,6 +136,30 @@ var idLogin = document.getElementById('login');
 var username = document.getElementById('username');
 btnLogin.onclick = function(){
   idLogin.innerHTML = '<p>We\'re happy to see you again, </p><h1>' +username.value+ '</h1>';
+}
+
+
+function deleteBlog (blog){
+    console.log(blog);
+    $.ajax({
+        url: 'http://192.168.100.6:8080/blogs/delete/' + blog.id,
+        type: 'DELETE',
+        contentType:'application/json',
+        headers: {
+            "Content-Type":"application/json",
+            "Accept": "application/json",
+            'Access-Control-Allow-Origin': '*',
+            'Access-Control-Allow-Credentials' : 'true',
+        },
+
+        success: function(blog) {
+            if (blog.status != 200) {
+                console.log('ERROR');
+            } else {
+                console.log('DELETED!');
+            }}
+    });
+    window.location.reload();
 }
 </script>
 

@@ -16,9 +16,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "/index")
     public String getPage(){
-        return "Welcome";
+        return "hello";
     }
 
     @GetMapping(value = "/users")
