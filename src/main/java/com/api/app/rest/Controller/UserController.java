@@ -16,11 +16,6 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @GetMapping(value = "/index")
-    public String getPage(){
-        return "hello";
-    }
-
     @GetMapping(value = "/users")
     public List<User> getUsers(){
         return userRepo.findAll();
